@@ -17,7 +17,6 @@ Un sistema universitario necesita registrar la información básica de un estudi
 
 public class Ejercicio1 {
     public static void main(String[] args){
-      public static void main(String[] args) {
 
         String nombreCompleto;
         int codigo;
@@ -38,6 +37,6 @@ public class Ejercicio1 {
         System.out.println("Promedio: " + promedioAcumulado);
         System.out.println("Matriculado: " + matriculado);
     }
-}
+
 
 }
