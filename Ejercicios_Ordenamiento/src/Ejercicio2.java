@@ -16,46 +16,40 @@ import java.util.Scanner;
 
 public class Ejercicio2 {
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Ingrese la cantidad de libros: ");
         int n = scanner.nextInt();
 
-        int[] libros = new int[n];
+        int[] codigo = new int[n];
 
         for (int i = 0; i < n; i++) {
+
             System.out.print("Ingrese el codigo del libro " + (i + 1) + ": ");
-            libros[i] = scanner.nextInt();
-        }
+            int nuevo = scanner.nextInt();
 
-        System.out.println("Arreglo original:");
-        imprimir(libros);
+            int pos = n - 1 - i; 
+            codigo[pos] = nuevo;
 
-        for (int i = 1; i < n; i++) {
+            int j = pos;
 
-            int clave = libros[i];
-            int j = i - 1;
-
-            while (j >= 0 && libros[j] > clave) {
-                libros[j + 1] = libros[j];
-                j--;
+            while (j < n - 1 && codigo[j] > codigo[j + 1]) {
+                int temp = codigo[j];
+                codigo[j] = codigo[j + 1];
+                codigo[j + 1] = temp;
+                j++;
             }
 
-            libros[j + 1] = clave;
-
-            System.out.print("Paso " + i + ": ");
-            imprimir(libros);
+            mostrarArreglo(codigo);
         }
-
-        System.out.println("Arreglo ordenado final:");
-        imprimir(libros);
 
         scanner.close();
     }
 
-    public static void imprimir(int[] arr) {
+    public static void mostrarArreglo(int[] arr) {
+
         System.out.print("[");
+
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i]);
 
@@ -63,7 +57,13 @@ public class Ejercicio2 {
                 System.out.print(", ");
             }
         }
+
         System.out.println("]");
+
+        
+
     }
+
+        
     
 }
